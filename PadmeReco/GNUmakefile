@@ -22,7 +22,7 @@ LIBS += $(addprefix -L,$(addsuffix /lib,$(SUBDIRS))) $(addprefix -l,$(addsuffix 
 #LIBS += -LService/lib -lService$(STATIC)
 LIBS += -LRecoBase/lib -lRecoBase$(STATIC)
 LIBS += -L$(PADMEROOT)/lib -lPadmeRoot
-LIBS += -L/usr/lib64/mysql -lmysqlclient
+#LIBS += -L/usr/lib64/mysql -lmysqlclient
 
 #EXTRALIBS += -LEventDisplay/lib -lEventDisplay$(STATIC) -lEve -lGeom -lRGL -lFTGL -lGui -lGed -lTreePlayer -lEG 
 

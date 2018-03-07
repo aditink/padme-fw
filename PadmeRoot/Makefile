@@ -47,7 +47,7 @@ LIBRARY := $(LDIR)/lib$(LIBNAME).so
 all: $(LIBNAME)
 
 $(LIBNAME) : $(DEPS) $(OBJECTS)
-	$(CXX) -shared -o $(LIBRARY) $(ROOTLDFLAGS) $(CXXFLAGS) $(OBJECTS)
+	$(CXX) $(ROOTCFLAGS) $(ROOTLIBS) -shared -o $(LIBRARY) $(ROOTLDFLAGS) $(CXXFLAGS) $(OBJECTS)
 
 $(ODIR)/%.o : $(SDIR)/%.cc $(DDIR)/%.ccd
 	$(CXX) $(CXXFLAGS) -c $< -o $@
