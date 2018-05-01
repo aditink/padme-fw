@@ -342,12 +342,12 @@ void PhysicsList::ConstructEM()
       // Construct processes for electron
       G4VProcess* theeminusMultipleScattering = new G4eMultipleScattering();
       G4VProcess* theeminusIonisation = new G4eIonisation();
-      G4VProcess* theeminusBremsstrahlung = new G4eBremsstrahlung();
+      //G4VProcess* theeminusBremsstrahlung = new G4eBremsstrahlung();
       G4VProcess* theeminusSincrotron = new G4SynchrotronRadiation();
       // add processes
       pmanager->AddProcess(theeminusMultipleScattering);
       pmanager->AddProcess(theeminusIonisation);
-      pmanager->AddProcess(theeminusBremsstrahlung);
+      //pmanager->AddProcess(theeminusBremsstrahlung);
       if(IsSincrotronON) pmanager->AddProcess(theeminusSincrotron);
       // set ordering for AlongStepDoIt
       pmanager->SetProcessOrdering(theeminusMultipleScattering, idxAlongStep,  1);
@@ -355,7 +355,7 @@ void PhysicsList::ConstructEM()
       // set ordering for PostStepDoIt
       pmanager->SetProcessOrdering(theeminusMultipleScattering, idxPostStep, 1);
       pmanager->SetProcessOrdering(theeminusIonisation, idxPostStep, 2);
-      pmanager->SetProcessOrdering(theeminusBremsstrahlung, idxPostStep, 3);
+      //pmanager->SetProcessOrdering(theeminusBremsstrahlung, idxPostStep, 3);
       if(IsSincrotronON) pmanager->SetProcessOrdering(theeminusSincrotron, idxPostStep, 4);
 
       //electron nuclear reactions M. Raggi 18/07/2014  il codice compila ma bomba!!
@@ -390,13 +390,13 @@ void PhysicsList::ConstructEM()
       // Construct processes for positron
       G4VProcess* theeplusMultipleScattering = new G4eMultipleScattering();
       G4VProcess* theeplusIonisation         = new G4eIonisation();
-      G4VProcess* theeplusBremsstrahlung     = new G4eBremsstrahlung();
+      //G4VProcess* theeplusBremsstrahlung     = new G4eBremsstrahlung();
       G4VProcess* theeplusAnnihilation       = new G4eplusAnnihilation();
       G4VProcess* theeplusSincrotron         = new G4SynchrotronRadiation();
       // add processes
       pmanager->AddProcess(theeplusMultipleScattering);
       pmanager->AddProcess(theeplusIonisation);
-      pmanager->AddProcess(theeplusBremsstrahlung);
+      //pmanager->AddProcess(theeplusBremsstrahlung);
       pmanager->AddProcess(theeplusAnnihilation);
       if(IsSincrotronON) pmanager->AddProcess(theeplusSincrotron);
       // set ordering for AtRestDoIt
@@ -407,7 +407,7 @@ void PhysicsList::ConstructEM()
       // set ordering for PostStepDoIt
       pmanager->SetProcessOrdering(theeplusMultipleScattering, idxPostStep, 1);
       pmanager->SetProcessOrdering(theeplusIonisation, idxPostStep, 2);
-      pmanager->SetProcessOrdering(theeplusBremsstrahlung, idxPostStep, 3);
+      //pmanager->SetProcessOrdering(theeplusBremsstrahlung, idxPostStep, 3);
       pmanager->SetProcessOrdering(theeplusAnnihilation, idxPostStep, 4);
       if(IsSincrotronON) pmanager->SetProcessOrdering(theeplusSincrotron, idxPostStep, 5);
 
