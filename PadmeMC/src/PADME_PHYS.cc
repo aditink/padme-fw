@@ -19,9 +19,9 @@
 #include "G4MaterialTable.hh"
 
 #include "G4DecayPhysics.hh"
-//#include "G4EmStandardPhysics.hh"
+#include "G4EmStandardPhysics.hh"
 //Same as G4EmStandard, except without Bremstrahlung
-#include "CornellEmPhysics.hh"
+//#include "CornellEmPhysics.hh"
 #include "G4EmExtraPhysics.hh"
 #include "G4IonPhysics.hh"
 #include "G4StoppingPhysics.hh"
@@ -80,7 +80,8 @@ PADME_PHYS::PADME_PHYS(G4int ver): G4VModularPhysicsList()
   //    Ionisation
   //    Bremsstrahlung
   //    eplusAnnihilation
-  this->RegisterPhysics( new CornellEmPhysics(ver) );
+  //  this->RegisterPhysics( new CornellEmPhysics(ver) );
+    this->RegisterPhysics( new G4EmStandardPhysics(ver) );
   
 
   // Synchroton Radiation & GN Physics
