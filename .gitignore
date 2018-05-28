@@ -11,7 +11,6 @@
 *.root
 *.pcm
 *.heprep
-#Lists are too large to commit
 PadmeMC/Beam/src/ThreeGamma_550MeV.txt
 PadmeMC/Beam/src/*.list
 run_*
