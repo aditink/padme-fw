@@ -76,6 +76,7 @@ void BeamGenerator::GenerateBeam(G4Event* anEvent)
     nTotPositrons = G4Poisson(nTotPositrons);
   }
   G4int nUbosonDecays = bpar->GetNUbosonDecaysPerBunch();
+  //  G4int nUbosonDecays = 0;
   G4int nThreePhotonDecays = bpar->GetNThreePhotonDecaysPerBunch();
   G4int nPositrons = nTotPositrons-nUbosonDecays-nThreePhotonDecays;
   if (nPositrons<0) {
