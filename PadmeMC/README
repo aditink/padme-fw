@@ -1,0 +1,39 @@
+-Notes on installation-
+(Not definitive, just based on my experience)
+
+1. Before being able to run this simulation you'll need to install and set up
+   Geant4.
+   I found this very helpful:
+   https://indico.cern.ch/event/679723/contributions/2792554/attachments/1559217/2453759/Geant4InstallationGuide.pdf
+2. To veiw the graphs, you might want to install root, though there are other
+   (inferior) alternatives.
+3. Before making the PadmeMC binary, initialise environment variables.
+   a. source geant4.10.04-build/geant4make.sh (or .csh as the case may be)
+   b. source padmefw/Configure/padme_init.sh
+4. You can make the monte carlo simulation with the help of the GNUmakefile
+   in PadmeMC.
+   In PadmeMC, run make
+   If you get errors realting to DYLIB, you might have to set some paths,
+   refer to .setup.sh in PadmeMC to see what worked for me.
+5. You'll get an executable in the bin folder.
+   Execute it from the PadmeMC directory. (For me, that is
+   ./bin/Darwin-clang/PADMEMC)
+   Going further in will cause macro problems.
+
+NOTE:
+Before you 'make' the simulation, some environment variables (in the padme
+repository, but also for geant4) need to be set. For my convenience I wrote a
+short script that did this for me, .setup.sh, located in PadmeMC directory
+(note that it is hidden).
+However a part of it relies on the location of my geant4 installation with
+respect to the padme repository.
+It is assumed that the geant4-build directory would have to be at the same
+level as padme-fw, like so:
+
+                   __padme_fw
+Some directory ---|
+                  |__geant4*version*-build
+		
+So if you want to use it, you might want to modify the script accordingly.
+Maybe even paste it into your bash-rc (linux) or ~/.bash-profile (mac)
+if you don't want to have to run it every time.
